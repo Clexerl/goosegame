@@ -1,0 +1,276 @@
+hat* {
+  box-sizing:border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: url('/images/grassrn.jpg');
+  background-size: 10% 10%;
+  font-family: 'Source Sans Pro', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-container { 
+  border: 2px solid black;
+  position: relative;
+  width: 500px;
+  height: 240px;
+  background-image: url('/images/grassrn.jpg');
+  background-size: 10% 10%;
+  transform: scale(3);
+  -webkit-animation: rainbow 5s  infinite;
+-z-animation: rainbow 5s  infinite;
+-o-animation: rainbow 5s  infinite;
+  animation: rainbow 5s infinite;
+  
+}
+.player-info {
+  position: absolute;
+  top: 0;
+  left:0;
+  padding: 1em;
+  display: flex;
+  gap: 0.5em;
+  align-items: flex-end
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+button {
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 18px;
+  height: 44px;
+  border-radius: 4px;
+  outline: 0;
+}
+
+input[type="text"] {
+  outline: 0;
+  padding-left: 0.5em;
+  border: 3px solid #222034;
+  width: 150px;
+  text-transform:none;
+}
+input[type="text"]:focus {
+  border-color: #707070;
+  transition-duration: 100ms;
+}
+
+button {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  background: #59ff5a;
+  border: 0;
+  border-bottom: 2px solid #1e830b;
+  cursor: pointer;
+}
+button:active {
+  position: relative;
+  top: 1px;
+  
+}
+button:hover {
+  transition: 0.3s;
+  background: #51e151;
+  animation: shake 0.5s;
+
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+}
+
+/* Characters */
+.grid-cell {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  
+}
+.Character {
+  transition: transform 0.4s;
+  z-index: 1;
+  
+}
+.Character.you {
+  z-index: 2;
+}
+.Character.you .Character_you-arrow {
+  display: block;
+}
+.Character_you-arrow {
+  display: none;
+  position: absolute;
+  top:-28px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background: url(/images/arrow.png) no-repeat no-repeat;
+  image-rendering: pixelated;
+}
+.Character_sprite {
+  overflow: hidden;
+  
+  background: url(/images/characters.gif);
+  
+  image-rendering: pixelated;
+  
+}
+
+.Character[data-direction="right"] .Character_sprite {
+  background-position-x: 16px;
+  
+}
+.Character[data-direction="left"] .Character_sprite {
+  background-position-x: 0px;
+  
+}
+.Character[data-direction="left_walking"] .Character_sprite {
+  background: url(/images/characterswalking.gif);
+  background-position-x: 0px;
+  
+  
+  
+  
+}
+.Character[data-direction="right_walking"] .Character_sprite {
+  
+  background: url(/images/characterswalking.gif);
+  background-position-x: 16px;
+  
+  
+}
+
+.Character_shadow {
+  background: url(/images/shadow.png) no-repeat no-repeat;
+}
+
+.Character_name-container {
+  position: absolute;
+  top: -12px;
+  left: -5px;
+  font-size: 5px;
+  padding: 1px 2px 1px;
+  border-radius: 3px;
+  background: #333;
+  color: white;
+  font-weight: bold;
+  text-transform: none;
+  white-space: nowrap;
+  
+  
+  
+}
+.Character_food-container {
+  position: absolute;
+  top: -20px;
+  left: -5px;
+  font-size: 5px;
+  padding: 1px 2px 1px;
+  border-radius: 3px;
+  background: #333;
+  color: rgb(201, 138, 12);
+  font-weight: bold;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.food_sprite {
+  background:url(/images/curry.png);
+  
+  image-rendering: pixelated;
+   z-index:1;
+  
+
+
+}
+.food_shadow {
+  background: url(/images/food-shadow.png);
+  image-rendering: pixelated;
+}
+.curryrotten_shadow {
+  background: url(/images/food-shadow.png);
+  image-rendering: pixelated;
+  z-index:2;
+}
+.curryrotten_sprite {
+  background: url(/images/Curryrotten.gif);
+  image-rendering: pixelated;
+  z-index:2;
+  
+}
+
+
+
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes rainbow { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+h1 {
+  color:white;
+  font-size:100px;
+}
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-2deg); }
+  20% { transform: translate(-3px, 0px) rotate(2deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(2deg); }
+  50% { transform: translate(-1px, 2px) rotate(-2deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-2deg); }
+  80% { transform: translate(-1px, -1px) rotate(2deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-2deg); }
+}
+img {
+  width: 250px;
+  height: 250px;
+  
+}
+h2{
+  color:white;
+}
+h3
+{
+  color:white;
+}
+h4 
+{
+  color:white;
+}
+h5 
+{
+  color:white;
+}
+h6
+{
+  color:white;
+}
+h7
+{
+  color:white;
+}
