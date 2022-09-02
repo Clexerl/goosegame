@@ -11,6 +11,10 @@ Hosting on Chromebook: [![Run on Repl.it](https://repl.it/badge/github/AdvancedA
 
 Hosting instructions: [Instructions for Replit](docs/replit.md)
 
+
+In the images file, some of the images/gif files had planned use, or had no use, can be deleted. 
+
+
 ## These fields **must** be filled in for goosegame to work properly.
 ```javascript
       const firebaseConfig = {
